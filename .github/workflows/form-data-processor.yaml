@@ -1,0 +1,13 @@
+name: Processor for Forms submission events
+
+on:
+  repository_dispatch:
+    types: [form-data-received]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Form data processor action
+        id: data-processor
+        run: echo "event received"
