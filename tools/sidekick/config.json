@@ -4,7 +4,7 @@
       "id": "docTemplateGenerator",
       "title": "Generate Dor Template",
       "event": "generateDorTemplateEvent",
-      "environments": ["preview"]
+      "include_paths": ["*page*json","*live*json"]
     }
   ]
 }
