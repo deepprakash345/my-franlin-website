@@ -103,10 +103,30 @@ function loadDelayed() {
   // load anything that can be postponed to the latest here
 }
 
+function addSideKickEventHandlers() {
+  function generateDorTemplateEventHandler(detail) {
+    console.log(detail);
+    let a=1;
+  }
+
+  const sk = document.querySelector('helix-sidekick');
+  if (sk) {
+    // sidekick already loaded
+    sk.addEventListener('custom:generateDorTemplateEvent', generateDorTemplateEventHandler);
+  } else {
+    // wait for sidekick to be loaded
+    document.addEventListener('sidekick-ready', () => {
+      document.querySelector('helix-sidekick')
+          .addEventListener('custom:generateDorTemplateEvent', generateDorTemplateEventHandler);
+    }, { once: true });
+  }
+}
+
 async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
+  addSideKickEventHandlers();
 }
 
 loadPage();
