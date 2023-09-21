@@ -1,9 +1,10 @@
 {
   "plugins": [
     {
-      "id": "foo",
-      "title": "Foo",
-      "event": "foo"
+      "id": "docTemplateGenerator",
+      "title": "Generate Dor Template",
+      "event": "generateDorTemplateEvent",
+      "include_paths": "preview"
     }
   ]
 }
