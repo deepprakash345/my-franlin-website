@@ -4,8 +4,8 @@
       "id": "docTemplateGenerator",
       "title": "Generate Dor Template",
       "event": "generateDorTemplateEvent",
-      "include_paths": ["*page*json","*live*json"],
-      "exclude_paths": [".*docs\/.google\/.com/*"]
+      "environments": ["preview"],
+      "exclude_paths": ["*page"]
     }
   ]
 }
