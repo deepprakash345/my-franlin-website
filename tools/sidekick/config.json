@@ -3,9 +3,10 @@
     {
       "id": "docTemplateGenerator",
       "title": "Generate Dor Template",
-      "url": "http://localhost:3000/template/docx?formPath=${window.location.href}",
+      "url": "http://localhost:3000/template/docx",
       "environments": ["preview"],
-      "excludePaths": ["*page","*live"]
+      "excludePaths": ["*page","*live"],
+      "passReferrer": true
     }
   ]
 }
