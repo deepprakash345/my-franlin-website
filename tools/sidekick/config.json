@@ -5,7 +5,7 @@
       "title": "Generate Dor Template",
       "url": "http://localhost:3000/template/docx?formPath=${window.location.href}",
       "environments": ["preview"],
-      "exclude_paths": ["https://main--my-franlin-website--deepprakash345.hlx.page"]
+      "excludePaths": ["*page","*live"]
     }
   ]
 }
