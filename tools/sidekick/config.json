@@ -1,0 +1,9 @@
+{
+  "plugins": [
+    {
+      "id": "foo",
+      "title": "Foo",
+      "event": "foo"
+    }
+  ]
+}
