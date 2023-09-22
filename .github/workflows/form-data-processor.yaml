@@ -16,10 +16,10 @@ jobs:
       - run : ls
       - run : |
           pwd
-          ls
+          ls -l
           cd ..
           pwd
-          ls
+          ls -l
       - run: |
           cd my-franlin-website
           npm install
