@@ -1,15 +1,20 @@
+---
 name: Processor for Forms submission events
-
 on:
   repository_dispatch:
-    types: [form-data-received]
-
+    types:
+      - form-data-received
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: process submit data to generate dor
         id: generate-dor
-        run: node ./../../scripts/googleSheetHandler.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+      - run: npm install
+      - run: node ./../../scripts/googleSheetHandler.js
       - name: Get the result
-        run: echo "The result of processing was ${{ steps.generate-dor.outputs.processing-result }}"
+        run: echo "The result of processing was ${{
+          steps.generate-dor.outputs.processing-result }}"
