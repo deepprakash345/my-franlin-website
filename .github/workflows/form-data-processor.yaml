@@ -13,8 +13,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
-      - run: cd ..
-      - run: npm install
+      - run : ls
+      - run : |
+          cd ..
+          ls
+      - run: |
+          cd my-franlin-website
+          npm install
       - run: node ./../../scripts/googleSheetHandler.js
       - name: Get the result
         run: echo "The result of processing was ${{
