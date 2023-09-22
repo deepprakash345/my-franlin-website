@@ -13,6 +13,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
+      - run: cd ..
       - run: npm install
       - run: node ./../../scripts/googleSheetHandler.js
       - name: Get the result
