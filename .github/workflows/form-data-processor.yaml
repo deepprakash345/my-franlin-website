@@ -15,7 +15,10 @@ jobs:
           node-version: 18.x
       - run : ls
       - run : |
+          pwd
+          ls
           cd ..
+          pwd
           ls
       - run: |
           cd my-franlin-website
