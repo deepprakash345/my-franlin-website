@@ -10,4 +10,6 @@ jobs:
     steps:
       - name: Form data processor action
         id: data-processor
-        run: echo "${{ toJson(github) }}"
+        run:
+          - echo "${{ toJson(github).event.client_payload.headerNames }}"
+          - echo "${{ toJson(github).event.client_payload.range }}"
