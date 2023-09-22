@@ -10,4 +10,4 @@ jobs:
     steps:
       - name: Form data processor action
         id: data-processor
-        run: echo "event received"
+        run: echo ${{github.event}}"
