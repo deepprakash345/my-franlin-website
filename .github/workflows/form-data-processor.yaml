@@ -16,13 +16,11 @@ jobs:
           node-version: 18.x
       - name: Install Node packages
         run: npm ci
-      - name: Check event data
-        run : |
-          echo "header names= ${{ toJson(github.event.client_payload.headerNames) }}"
-          echo "range = ${{toJson(github.event.client_payload.range)}}
-          echo "spreadsheetId = ${{toJson(github.event.client_payload.sourceLocation)}}
       - name: process submit data to generate dor
         id: generate-dor
+        env:
+          GOOGLE_SERVICEACCOUNT_EMAIL : ${{ secrets.SERVICEACCOUNTEMAIL }}
+          GOOGLE_SERVICEACCOUNT_PRIMARYKEY : ${{ secrets.SERVICEACCOUNTPRIMARYKEY }}
         run: node ./scripts/googleSheetHandler.js
       - name: Get the result
         run: echo "The result of processing was ${{
