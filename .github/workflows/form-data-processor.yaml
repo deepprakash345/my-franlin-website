@@ -32,3 +32,4 @@ jobs:
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
           data: '{"data":${{steps.generate-dor.outputs.processing-result }}}'
+          timeout: 20000
