@@ -23,7 +23,7 @@ jobs:
           echo "spreadsheetId = ${{toJson(github.event.client_payload.sourceLocation)}}
       - name: process submit data to generate dor
         id: generate-dor
-        run: node ./scripts/googleSheetHandler.js ${{ toJson(github.event.client_payload.headerNames) }} ${{toJson(github.event.client_payload.range)}} ${{toJson(github.event.client_payload.sourceLocation)}}
+        run: node ./scripts/googleSheetHandler.js
       - name: Get the result
         run: echo "The result of processing was ${{
           steps.generate-dor.outputs.processing-result }}"
