@@ -8,22 +8,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: process submit data to generate dor
         id: generate-dor
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
-      - run : ls
-      - run : |
-          pwd
-          ls -l
-          cd ..
-          pwd
-          ls -l
-      - run: |
-          cd ..
-          npm ci
-      - run: node ./../../scripts/googleSheetHandler.js
+      - run: npm ci
+      - run: node ./scripts/googleSheetHandler.js
       - name: Get the result
         run: echo "The result of processing was ${{
           steps.generate-dor.outputs.processing-result }}"
