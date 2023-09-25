@@ -20,7 +20,7 @@ jobs:
         run : |
           echo "header names= ${{ toJson(github.event.client_payload.headerNames) }}"
           echo "range = ${{toJson(github.event.client_payload.range)}}
-          echo "spreadsheetId = ${{toJson(github.event.client_payload.sourceLocation}}
+          echo "spreadsheetId = ${{toJson(github.event.client_payload.sourceLocation)}}
       - name: process submit data to generate dor
         id: generate-dor
         run: node ./scripts/googleSheetHandler.js
