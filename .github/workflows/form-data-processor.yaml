@@ -16,6 +16,11 @@ jobs:
           node-version: 18.x
       - name: Install Node packages
         run: npm ci
+      - name: Check event data
+        run : |
+          echo "header names= ${{ toJson(github.event.client_payload.headerNames) }}"
+          echo "range = ${{toJson(github.event.client_payload.range)}}
+          echo "spreadsheetId = ${{toJson(github.event.client_payload.sourceLocation}}
       - name: process submit data to generate dor
         id: generate-dor
         run: node ./scripts/googleSheetHandler.js
