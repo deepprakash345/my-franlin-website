@@ -1,5 +1,6 @@
 const googleapis=require("./../node_modules/googleapis");
 const core=require("./../node_modules/@actions/core");
+import * as github from '@actions/github';
 const google=googleapis.google;
 
 const sheets = google.sheets('v4');
