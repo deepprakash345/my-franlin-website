@@ -25,3 +25,10 @@ jobs:
       - name: Get the result
         run: echo "The result of processing was ${{
           steps.generate-dor.outputs.processing-result }}"
+      - name: Call Generate Dor api
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://83b4-130-248-126-34.ngrok-free.app/generateDor/docx'
+          method: 'POST'
+          customHeaders: '{"Content-Type": "application/json"}'
+          data: '{"data":${{steps.generate-dor.outputs.processing-result }}}'
