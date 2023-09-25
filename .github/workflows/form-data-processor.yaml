@@ -30,6 +30,8 @@ jobs:
         with:
           url: 'https://83b4-130-248-126-34.ngrok-free.app/generateDor/docx'
           method: 'POST'
-          customHeaders: '{"Content-Type": "application/json"}'
+          customHeaders: '{ "Content-Type": "application/json",
+                            "GOOGLE_SERVICEACCOUNT_EMAIL":${{ secrets.SERVICEACCOUNTEMAIL }},
+                            "GOOGLE_SERVICEACCOUNT_PRIMARYKEY" : ${{ secrets.SERVICEACCOUNTPRIMARYKEY }}}'
           data: '{"data":${{steps.generate-dor.outputs.processing-result }}}'
           timeout: 20000

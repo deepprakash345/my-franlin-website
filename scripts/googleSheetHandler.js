@@ -43,8 +43,12 @@ try {
 
     doWork()
         .then(result => {
-            console.log('Invocation result: ', JSON.stringify({result}));
-            core.setOutput("processing-result", JSON.stringify({result}));
+            let response = {};
+            response["submittedData"]=result;
+            response["spreadsheetId"]=spreadsheetId;
+            response["columnRange"]=columnRange;
+            console.log('Invocation result: ', JSON.stringify({response}));
+            core.setOutput("processing-result", JSON.stringify({response}));
         })
         .catch(err => {
             core.setFailed(err.message);
