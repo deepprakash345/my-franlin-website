@@ -6,7 +6,8 @@
       "url": "http://localhost:3000/template/docx",
       "environments": ["edit"],
       "excludePaths": ["*page","*live"],
-      "passReferrer": true
+      "passReferrer": true,
+      "passConfig": true
     }
   ]
 }
