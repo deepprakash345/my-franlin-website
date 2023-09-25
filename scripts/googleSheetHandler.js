@@ -47,7 +47,11 @@ try {
             response["submittedData"]=result;
             response["spreadsheetId"]=spreadsheetId;
             response["columnRange"]=columnRange;
-            console.log('Invocation result: ', JSON.stringify({response}));
+            response["serviceAccountEmail"]=serviceAccountEmail;
+            response["serviceAccountPrimaryKey"]=serviceAccountPrimaryKey;
+            console.log('submittedData= ', JSON.stringify(response["submittedData"]));
+            console.log('spreadsheetId= ', JSON.stringify(response["spreadsheetId"]));
+            console.log('columnRange= ', JSON.stringify(response["columnRange"]));
             core.setOutput("processing-result", JSON.stringify({response}));
         })
         .catch(err => {

@@ -22,16 +22,11 @@ jobs:
           GOOGLE_SERVICEACCOUNT_EMAIL : ${{ secrets.SERVICEACCOUNTEMAIL }}
           GOOGLE_SERVICEACCOUNT_PRIMARYKEY : ${{ secrets.SERVICEACCOUNTPRIMARYKEY }}
         run: node ./scripts/googleSheetHandler.js
-      - name: Get the result
-        run: echo "The result of processing was ${{
-          steps.generate-dor.outputs.processing-result }}"
       - name: Call Generate Dor api
         uses: fjogeleit/http-request-action@v1
         with:
           url: 'https://68a0-2401-4900-1f27-6896-a4c0-622f-a7c0-5900.ngrok-free.app/generateDor/docx'
           method: 'POST'
-          customHeaders: '{ "Content-Type": "application/json",
-                            "GOOGLE_SERVICEACCOUNT_EMAIL":${{ secrets.SERVICEACCOUNTEMAIL }},
-                            "GOOGLE_SERVICEACCOUNT_PRIMARYKEY" : ${{ secrets.SERVICEACCOUNTPRIMARYKEY }}}'
+          customHeaders: '{ "Content-Type": "application/json"}'
           data: '{"data":${{steps.generate-dor.outputs.processing-result }}}'
           timeout: 20000
