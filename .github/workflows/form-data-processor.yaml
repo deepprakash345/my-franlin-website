@@ -16,17 +16,17 @@ jobs:
           node-version: 18.x
       - name: Install Node packages
         run: npm ci
-      - name: process submit data to generate dor
-        id: generate-dor
-        env:
-          GOOGLE_SERVICEACCOUNT_EMAIL : ${{ secrets.SERVICEACCOUNTEMAIL }}
-          GOOGLE_SERVICEACCOUNT_PRIMARYKEY : ${{ secrets.SERVICEACCOUNTPRIMARYKEY }}
-        run: node ./scripts/googleSheetHandler.js
+#      - name: process submit data to generate dor
+#        id: generate-dor
+#        env:
+#          GOOGLE_SERVICEACCOUNT_EMAIL : ${{ secrets.SERVICEACCOUNTEMAIL }}
+#          GOOGLE_SERVICEACCOUNT_PRIMARYKEY : ${{ secrets.SERVICEACCOUNTPRIMARYKEY }}
+#        run: node ./scripts/googleSheetHandler.js
       - name: Call Generate Dor api
         uses: fjogeleit/http-request-action@v1
         with:
           url: 'https://3776-130-248-126-34.ngrok-free.app/generateDor/docx'
           method: 'POST'
           customHeaders: '{ "Content-Type": "application/json"}'
-          data: '{"data":${{steps.generate-dor.outputs.processing-result }}}'
+          data: '{"data":${github.context.payload.client_payload}'
           timeout: 20000
