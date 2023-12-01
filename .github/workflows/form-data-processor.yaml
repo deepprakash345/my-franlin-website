@@ -25,7 +25,7 @@ jobs:
       - name: Call Generate Dor api
         uses: fjogeleit/http-request-action@v1
         with:
-          url: 'https://68a0-2401-4900-1f27-6896-a4c0-622f-a7c0-5900.ngrok-free.app/generateDor/docx'
+          url: 'https://3776-130-248-126-34.ngrok-free.app/generateDor/docx'
           method: 'POST'
           customHeaders: '{ "Content-Type": "application/json"}'
           data: '{"data":${{steps.generate-dor.outputs.processing-result }}}'
