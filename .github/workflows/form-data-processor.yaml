@@ -28,5 +28,6 @@ jobs:
           url: 'https://3776-130-248-126-34.ngrok-free.app/generateDor/docx'
           method: 'POST'
           customHeaders: '{ "Content-Type": "application/json"}'
-          data: '{"data":${github.context.payload.client_payload}'
+#          data: '{"data":${github.context.payload.client_payload}'
+          data: '{"a":"b"}'
           timeout: 20000
